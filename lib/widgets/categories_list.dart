@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/pages/category_products_page.dart';
 import 'package:store_app/widgets/category_section.dart';
 
 class CategoriesList extends StatelessWidget {
@@ -12,28 +13,31 @@ class CategoriesList extends StatelessWidget {
         children: [
           SizedBox(height: 40),
 
-          Text("Category", style: TextStyle(color: Colors.pink,fontSize: 16,fontWeight: FontWeight.bold, fontFamily: "EduNSWACTCursive"),),
+          Text(
+            "Category",
+            style: TextStyle(
+              color: Colors.pink,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              fontFamily: "EduNSWACTCursive",
+            ),
+          ),
           CategorySection(
-            onTap: (){
-
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return CategoryProductsPage();
+                  },
+                ),
+              );
             },
-            categoryName: "electronics",),
-          CategorySection(
-            onTap: (){
-
-            },
-            categoryName: "jewelery",),
-          CategorySection(
-            onTap: (){
-
-            },
-            categoryName: "men's clothing",),
-          CategorySection(
-            onTap: (){
-              
-            },
-            categoryName: "women's clothing",),
-          
+            categoryName: "electronics",
+          ),
+          CategorySection(onTap: () {}, categoryName: "jewelery"),
+          CategorySection(onTap: () {}, categoryName: "men's clothing"),
+          CategorySection(onTap: () {}, categoryName: "women's clothing"),
         ],
       ),
     );
