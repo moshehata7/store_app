@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/cubit/get_all_product_cubit.dart';
+import 'package:store_app/all_product_cubit/get_all_product_cubit.dart';
+import 'package:store_app/widgets/categories_list.dart';
 import 'package:store_app/widgets/custom_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,10 +21,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Drawer(
+        backgroundColor: Color(0xffddc7d4),
+        child:CategoriesList() ,
+      ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+        actions: [IconButton(onPressed: () {
+
+        }, icon: Icon(Icons.search))],
         title: Text(
           "Lusvia Store",
           style: TextStyle(
