@@ -1,5 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/category_cubit/category_cubit.dart';
 import 'package:store_app/pages/category_products_page.dart';
+import 'package:store_app/services/category_service.dart';
 import 'package:store_app/widgets/category_section.dart';
 
 class CategoriesList extends StatelessWidget {
@@ -28,16 +32,57 @@ class CategoriesList extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return CategoryProductsPage();
+                    return BlocProvider(
+            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            child: CategoryProductsPage(categoryName: "electronics",),
+          );
                   },
                 ),
               );
             },
             categoryName: "electronics",
           ),
-          CategorySection(onTap: () {}, categoryName: "jewelery"),
-          CategorySection(onTap: () {}, categoryName: "men's clothing"),
-          CategorySection(onTap: () {}, categoryName: "women's clothing"),
+          CategorySection(onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return BlocProvider(
+            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            child: CategoryProductsPage(categoryName: "jewelery",),
+          );
+                  },
+                ),
+              );
+            
+          }, categoryName: "jewelery"),
+          CategorySection(onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return BlocProvider(
+            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            child: CategoryProductsPage(categoryName: "men's clothing",),
+          );
+                  },
+                ),
+              );
+          }, categoryName: "men's clothing"),
+          CategorySection(onTap: () {
+            
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return BlocProvider(
+            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            child: CategoryProductsPage(categoryName: "women's clothing",),
+          );
+                  },
+                ),
+              );
+          }, categoryName: "women's clothing"),
         ],
       ),
     );

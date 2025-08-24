@@ -5,7 +5,8 @@ import 'package:store_app/widgets/categories_list.dart';
 import 'package:store_app/widgets/custom_card.dart';
 
 class CategoryProductsPage extends StatefulWidget {
-  const CategoryProductsPage({super.key});
+  const CategoryProductsPage({super.key, required this.categoryName});
+  final String categoryName;
 
   @override
   State<CategoryProductsPage> createState() => _HomePageState();
@@ -17,16 +18,14 @@ class _HomePageState extends State<CategoryProductsPage> {
     super.initState();
     BlocProvider.of<CategoryProductsCubit>(
       context
-    ).getProductsOfCategory("jewelery");
+    ).getProductsOfCategory(widget.categoryName);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Color(0xffddc7d4),
-        child: CategoriesList(),
-      ),
+      
+      
       appBar: AppBar(
         title: Text(
           "Lusvia Store",
