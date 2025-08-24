@@ -79,7 +79,9 @@ flutter:
     - family: EduNSWACTCursive
       fonts:
         - asset: assets/fonts/Edu_NSW_ACT_Cursive/EduNSWACTCursive-VariableFont_wght.ttf
-        
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf    
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

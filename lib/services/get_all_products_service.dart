@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:store_app/models/product_model.dart';
 
-class GetAllProducts {
+class ProductService {
   final Dio dio;
-  GetAllProducts(this.dio);
+  ProductService(this.dio);
   Future<List<Product>> getAllProduct() async {
     Response response = await dio.get("https://fakestoreapi.com/products");
     try {
