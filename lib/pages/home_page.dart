@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/constants/strings.dart';
 import 'package:store_app/widgets/custom_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,18 +9,32 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(),
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
+        backgroundColor: Colors.transparent,
+        actions: [IconButton(
+          onPressed: () {
+
+          }, 
+          icon: Icon(Icons.search))],
         title: Text(
-          "MY STORE",
+          "Lusvia Store",
           style: TextStyle(
-            color: kColor,
+            fontSize: 40,
+            color: Colors.pink,
             fontFamily: "EduNSWACTCursive",
             fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
       ),
-      body:CustomCard()
+      body: GridView.builder(
+        gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1.5
+          ),
+        itemBuilder: (context, index) {
+          return CustomCard();
+        },
+      ),
     );
   }
 }
