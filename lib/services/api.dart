@@ -30,6 +30,12 @@ class Api {
       data: body,
       options: Options(headers: headers),
     );
-    return response.data;
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception(
+        "there is an error with status code ${response.statusCode}",
+      );
+    }
   }
 }
