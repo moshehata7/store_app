@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:store_app/models/product_model.dart';
@@ -25,12 +26,11 @@ class CustomCard extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         maxLines: 2,
-                        product.title!.substring(0,18),
+                        product.title!.substring(0, 18),
                         style: TextStyle(
                           fontFamily: "RobotoSlab",
                           color: Colors.black,
@@ -47,7 +47,7 @@ class CustomCard extends StatelessWidget {
                               " ${product.price}",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(width: 100,),
+                            SizedBox(width: 100),
                             FaIcon(FontAwesomeIcons.heart),
                           ],
                         ),
@@ -60,9 +60,15 @@ class CustomCard extends StatelessWidget {
               Positioned(
                 top: 10,
                 left: 100,
-                child: Image.network(
-                  product.image!,
-                   height: 60,width: 60,),
+                child: SizedBox(
+                  height: 40,
+                  width: 60,
+                  child: CachedNetworkImage(
+                    imageUrl: product.image ?? "",
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
+                ),
               ),
             ],
           ),

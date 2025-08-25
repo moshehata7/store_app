@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/category_cubit/category_cubit.dart';
-import 'package:store_app/widgets/categories_list.dart';
 import 'package:store_app/widgets/custom_card.dart';
 
 class CategoryProductsPage extends StatefulWidget {
