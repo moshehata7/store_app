@@ -5,7 +5,7 @@ class Api {
   final Dio dio;
 
   Api(this.dio);
-  Future<Response> get(final String url) async {
+  Future<dynamic> get({required String url}) async {
     Response response = await dio.get(url);
     if (response.statusCode == 200) {
       return response.data;

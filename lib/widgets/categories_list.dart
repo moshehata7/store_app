@@ -33,7 +33,7 @@ class CategoriesList extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return BlocProvider(
-            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            create: (context) => CategoryProductsCubit(CategoryService()),
             child: CategoryProductsPage(categoryName: "electronics",),
           );
                   },
@@ -48,7 +48,7 @@ class CategoriesList extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return BlocProvider(
-            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            create: (context) => CategoryProductsCubit(CategoryService()),
             child: CategoryProductsPage(categoryName: "jewelery",),
           );
                   },
@@ -62,7 +62,7 @@ class CategoriesList extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return BlocProvider(
-            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            create: (context) => CategoryProductsCubit(CategoryService()),
             child: CategoryProductsPage(categoryName: "men's clothing",),
           );
                   },
@@ -76,7 +76,7 @@ class CategoriesList extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return BlocProvider(
-            create: (context) => CategoryProductsCubit(CategoryService(Dio())),
+            create: (context) => CategoryProductsCubit(CategoryService()),
             child: CategoryProductsPage(categoryName: "women's clothing",),
           );
                   },

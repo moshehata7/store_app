@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:store_app/models/product_model.dart';
+import 'package:store_app/pages/update_product_page.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key, required this.product});
@@ -11,66 +12,81 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Card(
-        color: Color(0xffddc7d4),
-        elevation: 10,
-        shadowColor: Colors.black.withOpacity(0.8),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: SizedBox(
-          height: 100,
-          width: 200,
-          child: Stack(
-            children: [
-              Positioned(
-                top: 65,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        maxLines: 2,
-                        product.title!.substring(0, 18),
-                        style: TextStyle(
-                          fontFamily: "RobotoSlab",
-                          color: Colors.black,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return UpdateProductPage();
+              },
+            ),
+          );
+        },
+        child: Card(
+          color: Color(0xffddc7d4),
+          elevation: 10,
+          shadowColor: Colors.black.withOpacity(0.8),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: SizedBox(
+            height: 100,
+            width: 200,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 65,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          maxLines: 2,
+                          product.title!.substring(0, 18),
+                          style: TextStyle(
+                            fontFamily: "RobotoSlab",
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 18.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 18.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                          children: [
-                            Text(
-                              r"$"
-                              " ${product.price}",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(width: 100),
-                            FaIcon(FontAwesomeIcons.heart),
-                          ],
+                            children: [
+                              Text(
+                                r"$"
+                                " ${product.price}",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(width: 100),
+                              FaIcon(FontAwesomeIcons.heart),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
 
-              Positioned(
-                top: 10,
-                left: 100,
-                child: SizedBox(
-                  height: 40,
-                  width: 60,
-                  child: CachedNetworkImage(
-                    imageUrl: product.image ?? "",
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                Positioned(
+                  top: 10,
+                  left: 100,
+                  child: SizedBox(
+                    height: 40,
+                    width: 60,
+                    child: CachedNetworkImage(
+                      imageUrl: product.image ?? "",
+                      placeholder: (context, url) =>
+                          CircularProgressIndicator(),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

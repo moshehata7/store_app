@@ -4,9 +4,9 @@ import 'package:store_app/services/api.dart';
 
 class CategoryService {
   Future<List<Product>> getProductsOfCategory( String categoryName) async {
-    Response response = await Api(Dio()).get("https://fakestoreapi.com/products/category/$categoryName");
+    var data = await Api(Dio()).get(url:"https://fakestoreapi.com/products/category/$categoryName");
     
-      List productsOfCategory = response.data;
+      List productsOfCategory = data;
       return productsOfCategory.map((product) => Product.fromJson(product)).toList();
     } 
   }

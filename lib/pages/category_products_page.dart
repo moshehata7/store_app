@@ -8,10 +8,10 @@ class CategoryProductsPage extends StatefulWidget {
   final String categoryName;
 
   @override
-  State<CategoryProductsPage> createState() => _HomePageState();
+  State<CategoryProductsPage> createState() => _CategoryProductsPageState();
 }
 
-class _HomePageState extends State<CategoryProductsPage> {
+class _CategoryProductsPageState extends State<CategoryProductsPage> {
   @override
   void initState() {
     super.initState();

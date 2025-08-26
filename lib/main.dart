@@ -16,7 +16,7 @@ class StoreApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BlocProvider(create: (context) => GetAllProductCubit(ProductService(Dio())),
+      home: BlocProvider(create: (context) => GetAllProductCubit(ProductService()),
        child: HomePage()),
     );
   }
